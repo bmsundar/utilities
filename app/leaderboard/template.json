@@ -1,0 +1,40 @@
+{
+  "CLASS_NAME": {
+    "last_summarized_date": "START_DATE",
+    "summarize_till_date": "END_DATE",
+    "cassandra_connection": {
+      "spark_keyspace": "analyticsdb",
+      "app_keyspace": "centraldb",
+      "hosts": "172.50.101.15,172.50.101.16,172.50.101.17",
+      "username": "athena",
+      "password": "@ruba123",
+      "ssl_enabled": "false",
+      "truststore_path": "/etc/dse/cassandra/demeter.truststore",
+      "truststore_password": "cassandra"
+    }
+  },
+  "spark": {
+    "context-settings": {
+      "num-cpu-cores": 2,
+      "clustermode": false,
+      "memory-per-node": "3G",
+      "spark": {
+        "executor": {
+          "cores": "2"
+        },
+        "cassandra": {
+          "output": {
+            "consistency": {
+              "level": "LOCAL_ONE"
+            }
+          },
+          "input": {
+            "consistency": {
+              "level": "LOCAL_ONE"
+            }
+          }
+        }
+      }
+    }
+  }
+}
